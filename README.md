@@ -1,8 +1,15 @@
 # 🏝️ AILandia — Simulate an AI-First Society
 
 An interactive, single-page simulation of a fictional AI-governed nation.
-You set the founding **dials** across four design domains, run the society
-forward ~30 years, and watch the outcomes and tradeoffs emerge.
+The page is built around one workflow: **don't guess the constitution — test
+scenarios, watch each play out, and let the evidence pick your final
+parameters.**
+
+1. **Pick a starting point** — one of four founding philosophies, or a blank slate.
+2. **Tune the founding dials** across four design domains.
+3. **Run 30 years** and read the metrics, shocks and report card.
+4. **Compare & adopt** — save contrasting runs to the comparison bench, weigh
+   their tradeoffs side by side, and lock one in as AILandia's founding charter.
 
 > **AILandia is a thinking tool, not a forecast.** Its numbers encode
 > plausible-but-arguable social-science intuitions, chosen so that *tradeoffs
