@@ -30,6 +30,21 @@
   .btn-ghost {
     @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50;
   }
+  /* Numbered step badge used to make the four-step workflow legible. */
+  .step-num {
+    @apply inline-flex h-6 w-6 flex-none items-center justify-center rounded-full bg-sea-700 text-xs font-black text-white;
+  }
+}
+
+/* Hero sea backdrop — layered radial "currents" over the deep-sea base. */
+.hero-sea {
+  background-color: #1c3b44;
+  background-image: radial-gradient(120% 90% at 80% 0%, rgba(63, 126, 140, 0.55), transparent 60%),
+    radial-gradient(90% 80% at 0% 100%, rgba(134, 164, 59, 0.28), transparent 55%);
+}
+/* Faint moving sheen on the framed map so it reads as a living place. */
+.map-frame {
+  box-shadow: 0 20px 45px -20px rgba(8, 27, 33, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
 }
 
 /* Custom range slider styling so the dials feel tactile. */
