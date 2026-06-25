@@ -6,8 +6,12 @@ scenarios, watch each play out, and let the evidence pick your final
 parameters.**
 
 1. **Pick a starting point** — one of four founding philosophies, or a blank slate.
-2. **Tune the founding dials** across four design domains.
-3. **Run 30 years** and read the metrics, shocks and report card.
+2. **Tune the founding dials** across four design domains — *then* hit the launch
+   button below them.
+3. **Live through 30 years** — the run plays out one year at a time (~30s): a
+   ticking year clock, charts that draw across the timeline, breaking-news
+   banners as shocks land, and a verdict that stays curtained until year 30.
+   Pause, scrub, change speed (1×/2×/4×), or skip straight to the reckoning.
 4. **Compare & adopt** — save contrasting runs to the comparison bench, weigh
    their tradeoffs side by side, and lock one in as AILandia's founding charter.
 
