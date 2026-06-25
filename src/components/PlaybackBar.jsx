@@ -39,7 +39,11 @@ export function PlaybackBar({
         <div className="flex items-baseline gap-3">
           <div className="flex items-baseline gap-1">
             <span className="text-[11px] font-semibold uppercase tracking-widest text-sea-100/70">Year</span>
-            <span className={`text-4xl font-black leading-none tabular-nums ${playing ? 'year-pulse' : ''}`}>
+            <span
+              className={`inline-block w-[1.4em] text-right text-4xl font-black leading-none tabular-nums ${
+                playing ? 'year-pulse' : ''
+              }`}
+            >
               {year}
             </span>
             <span className="text-lg font-bold text-sea-100/70">/ {total}</span>
