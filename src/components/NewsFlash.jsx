@@ -10,33 +10,24 @@ const KIND_META = {
 }
 
 // During playback, surface the current year's headline as a breaking-news
-// banner. When a year passes with nothing notable, a calm "all quiet" strip
-// keeps the beat going so the playback never feels frozen.
-export function NewsFlash({ event, year, calm }) {
-  if (event) {
-    const meta = KIND_META[event.kind] || KIND_META.bias
-    return (
-      <div
-        key={`${event.year}-${event.kind}`}
-        className={`news-flash overflow-hidden rounded-xl bg-gradient-to-r ${meta.tone} px-4 py-3 text-white shadow-md`}
-      >
-        <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-white/80">
-          <span className="animate-pulse">●</span> Breaking · Year {event.year} · {meta.label}
-          {event.severity != null && <span className="opacity-80">· severity {Math.round(event.severity * 100)}%</span>}
-        </div>
-        <div className="mt-1 flex items-start gap-2 text-sm font-medium leading-snug">
-          <span className="text-xl leading-none">{meta.icon}</span>
-          <span>{event.text}</span>
-        </div>
+// banner. It fills its (fixed-height) dispatch slot and clamps its body so the
+// layout below never jumps as years tick past.
+export function NewsFlash({ event }) {
+  if (!event) return null
+  const meta = KIND_META[event.kind] || KIND_META.bias
+  return (
+    <div
+      key={`${event.year}-${event.kind}`}
+      className={`news-flash flex h-full flex-col justify-center overflow-hidden rounded-xl bg-gradient-to-r ${meta.tone} px-4 py-2 text-white shadow-md`}
+    >
+      <div className="flex items-center gap-1.5 truncate text-[10px] font-bold uppercase tracking-widest text-white/80">
+        <span className="animate-pulse">●</span> Breaking · Year {event.year} · {meta.label}
+        {event.severity != null && <span className="opacity-80">· sev {Math.round(event.severity * 100)}%</span>}
       </div>
-    )
-  }
-  if (calm) {
-    return (
-      <div className="rounded-xl border border-slate-200 bg-white/70 px-4 py-2.5 text-center text-xs text-slate-400">
-        ☀️ Year {year} — a calm year in AILandia. The metrics drift on.
+      <div className="mt-0.5 flex items-start gap-2 text-sm font-medium leading-snug">
+        <span className="text-lg leading-tight">{meta.icon}</span>
+        <span className="line-clamp-2">{event.text}</span>
       </div>
-    )
-  }
-  return null
+    </div>
+  )
 }

@@ -379,12 +379,17 @@ export default function App() {
               onCycleSpeed={onCycleSpeed}
             />
 
-            {/* The running story: state-of-the-nation line, then breaking news */}
+            {/* The running story in a FIXED-HEIGHT slot so the charts below never
+                jump as years tick: breaking news on event years, the
+                state-of-the-nation narration otherwise. */}
             {!done && (
-              <>
-                <Narrator text={narration} year={playYear} />
-                <NewsFlash event={headlineEvent} year={playYear} calm={false} />
-              </>
+              <div className="h-[4.5rem]">
+                {headlineEvent ? (
+                  <NewsFlash event={headlineEvent} />
+                ) : (
+                  <Narrator text={narration} year={playYear} />
+                )}
+              </div>
             )}
 
             <MetricCharts result={run?.result} throughYear={done ? null : playYear} />
