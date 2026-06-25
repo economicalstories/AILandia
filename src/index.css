@@ -84,3 +84,51 @@ input[type='range']::-moz-range-thumb {
   background: #cbd5e1;
   border-radius: 9999px;
 }
+
+/* ---- Playback delight ---------------------------------------------------- */
+
+/* The big year number gives a soft heartbeat while time is advancing. */
+@keyframes yearPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.78; transform: scale(1.02); }
+}
+.year-pulse {
+  animation: yearPulse 0.9s ease-in-out infinite;
+}
+
+/* A breaking-news banner slides + fades in each time the headline changes. */
+@keyframes newsFlashIn {
+  0% { opacity: 0; transform: translateY(-6px) scale(0.99); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.news-flash {
+  animation: newsFlashIn 0.35s ease-out;
+}
+
+/* The freshest log entry gets a brief attention-pop. */
+@keyframes eventPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.025); }
+  100% { transform: scale(1); }
+}
+.event-pop {
+  animation: eventPop 0.45s ease-out;
+}
+
+/* The report card + crew verdict rise into view when the 30 years complete. */
+@keyframes revealUp {
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.reveal-up {
+  animation: revealUp 0.5s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .year-pulse,
+  .news-flash,
+  .event-pop,
+  .reveal-up {
+    animation: none;
+  }
+}
