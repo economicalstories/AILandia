@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AILandia — An Interactive AI-Society Simulation</title>
+<meta name="description" content="AILandia is an interactive, agent-based simulation of a tiny AI society. Watch autonomous agents move, trade, befriend, and share ideas in real time." />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%2300d2ff'/%3E%3Ccircle cx='38' cy='42' r='8' fill='%23071226'/%3E%3Ccircle cx='62' cy='42' r='8' fill='%23071226'/%3E%3C/svg%3E" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">◍</span>
+    <div>
+      <h1>AILandia</h1>
+      <p class="tagline">An interactive AI-society simulation</p>
+    </div>
+  </div>
+  <nav class="controls">
+    <button id="btn-play" class="btn primary" aria-pressed="true">⏸ Pause</button>
+    <button id="btn-step" class="btn">⏭ Step</button>
+    <button id="btn-reset" class="btn">↺ Reset</button>
+  </nav>
+</header>
+
+<main class="layout">
+  <section class="stage">
+    <canvas id="world" aria-label="AILandia simulation world"></canvas>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <aside class="panel">
+    <div class="card">
+      <h2>World</h2>
+      <label class="slider">
+        <span>Population <b id="lbl-pop">0</b></span>
+        <input id="set-pop" type="range" min="4" max="120" step="1" value="40" />
+      </label>
+      <label class="slider">
+        <span>Speed <b id="lbl-speed">1.0×</b></span>
+        <input id="set-speed" type="range" min="0.2" max="4" step="0.1" value="1" />
+      </label>
+      <label class="slider">
+        <span>Sociability <b id="lbl-social">50%</b></span>
+        <input id="set-social" type="range" min="0" max="100" step="1" value="50" />
+      </label>
+    </div>
+
+    <div class="card">
+      <h2>Society stats</h2>
+      <dl class="stats">
+        <div><dt>Tick</dt><dd id="stat-tick">0</dd></div>
+        <div><dt>Agents</dt><dd id="stat-agents">0</dd></div>
+        <div><dt>Friendships</dt><dd id="stat-bonds">0</dd></div>
+        <div><dt>Trades</dt><dd id="stat-trades">0</dd></div>
+        <div><dt>Ideas spread</dt><dd id="stat-ideas">0</dd></div>
+        <div><dt>Avg. wealth</dt><dd id="stat-wealth">0</dd></div>
+      </dl>
+    </div>
+
+    <div class="card">
+      <h2>Selected agent</h2>
+      <div id="inspector" class="inspector muted">Click an agent to inspect it.</div>
+    </div>
+
+    <div class="card about">
+      <h2>About</h2>
+      <p>Each dot is an autonomous agent with its own personality, wealth and a
+      favourite <em>idea</em> (its colour). Agents wander, meet, trade resources
+      and occasionally adopt a neighbour's idea — so culture spreads. Tweak the
+      sliders and watch the society change.</p>
+    </div>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span>AILandia · runs entirely in your browser · deployed on Cloudflare Pages</span>
+</footer>
+
+<script src="sim.js"></script>
+</body>
+</html>
