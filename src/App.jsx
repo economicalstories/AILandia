@@ -12,6 +12,8 @@ import { CrewEvaluationView } from './components/CrewEvaluationView.jsx'
 import { ScenarioTray } from './components/ScenarioTray.jsx'
 import { PlaybackBar } from './components/PlaybackBar.jsx'
 import { NewsFlash } from './components/NewsFlash.jsx'
+import { Narrator } from './components/Narrator.jsx'
+import { narrateYear } from './sim/narrate.js'
 import mapImg from './assets/ailandia-map.jpeg'
 
 const YEARS = CONST.YEARS
@@ -184,6 +186,7 @@ export default function App() {
   const headlineEvent = yearEvents.length
     ? yearEvents.reduce((a, b) => ((b.severity ?? 0) > (a.severity ?? 0) ? b : a))
     : null
+  const narration = run ? narrateYear(run.result, playYear) : null
 
   return (
     <div className="min-h-screen">
@@ -376,9 +379,12 @@ export default function App() {
               onCycleSpeed={onCycleSpeed}
             />
 
-            {/* Breaking-news banner for the year currently on screen */}
+            {/* The running story: state-of-the-nation line, then breaking news */}
             {!done && (
-              <NewsFlash event={headlineEvent} year={playYear} calm={playing && !headlineEvent && playYear > 0} />
+              <>
+                <Narrator text={narration} year={playYear} />
+                <NewsFlash event={headlineEvent} year={playYear} calm={false} />
+              </>
             )}
 
             <MetricCharts result={run?.result} throughYear={done ? null : playYear} />
